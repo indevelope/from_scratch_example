@@ -1,7 +1,7 @@
 import React from 'react';
 import DiscountModal from './DiscountModal';
 
-import './index.css';
+import styles from './ProductCard.module.css';
 
 class ProductCard extends React.Component {
   render() {
@@ -39,29 +39,29 @@ const AddToCartButton = ({ onClick }) => (
 );
 
 const Card = ({ children }) => (
-  <div className='card'>
+  <div className='flex'>
     {children}
   </div>
 );
 
 const Cover = ({ src, alt }) => (
-  <div className='imageBox'>
-    <img className='image' src={src} alt={alt} />
+  <div className=''>
+    <img className={styles.image} src={src} alt={alt} />
   </div>
 );
 
 const CardBody = ({ children }) => (
-  <div className='cardBody'>
+  <div className={styles.cardBody}>
     {children}
   </div>
 );
 
 const Title = ({ children }) => (
-  <div className='title'>{children}</div>
+  <div className={styles.title}>{children}</div>
 );
 
 const Price = ({ value, discount }) => (
-  <div className='price'>
+  <div className={styles.price}>
     {
       discount ?
         <><s>${value}</s> ${Math.floor(value * 0.95)}</>

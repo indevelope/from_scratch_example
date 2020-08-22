@@ -20,7 +20,7 @@ const Cart = () => {
   return (
     <div>
       <div>
-        <h1>Cart</h1>
+        <h1 className='font-bold text-4xl'>Cart</h1>
         <CartItems removeFromCart={removeFromCart} items={items} />
       </div>
       <div>

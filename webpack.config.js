@@ -20,7 +20,19 @@ module.exports = {
       { test: /\.js/, use: 'babel-loader' },
       { 
         test: /\.css/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                auto: true,
+                localIdentName: '[local]--[hash:base64:5]',
+              }
+            }
+          },
+          'postcss-loader'
+        ]
       }
     ]
   },
