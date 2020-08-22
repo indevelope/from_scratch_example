@@ -1,0 +1,51 @@
+.card {
+  display: flex;
+  font-family: sans-serif;
+}
+
+.imageBox {
+  max-width: 200px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+}
+
+@media(--phone) {
+  .card {
+    flex-direction: column;
+  }
+
+  .imageBox {
+    max-width: 100%;
+    min-height: 0;
+    align-items: center;
+  }
+
+  .image {
+    width: 250px;
+  }
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 15px 10px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.05rem;
+  letter-spacing: .05rem;
+}
