@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Title": "Apple Macbook Pro 16\"",
+    "Price": 2799,
+    "Description": "Designed for those who defy limits and change the world, the new MacBook Pro is by far the most powerful notebook we’ve ever made. With an immersive 1...",
+    "Discount": false,
+    "Cover": "https://dl.airtable.com/.attachmentThumbnails/4bb4b8d3cc7a1189db7da6ebec06cbba/4eeff9ce"
+  },
+  {
+    "Id": 2,
+    "Title": "Apple Macbook Air 13\"",
+    "Price": 1299,
+    "Description": "The incredibly thin and light MacBook Air is now more powerful than ever. It features a brilliant Retina display, new Magic Keyboard, Touch ID, proces...",
+    "Discount": true,
+    "Cover": "https://dl.airtable.com/.attachmentThumbnails/966f5778107ea522100c3f397a2588da/3a78f378"
+  },
+  {
+    "Id": 3,
+    "Title": "Apple iPhone 11",
+    "Price": 699,
+    "Description": "A new dual‑camera system captures more of what you see and love. The fastest chip ever in a smartphone and all‑day battery life let you do more and ch...",
+    "Discount": true,
+    "Cover": "https://dl.airtable.com/.attachmentThumbnails/33981a1ff928acf3ea76f3eb9b6b1d48/933bfb10"
+  }
+]
