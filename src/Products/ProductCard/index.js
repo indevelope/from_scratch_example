@@ -1,8 +1,6 @@
 import React from 'react';
 import DiscountModal from './DiscountModal';
 
-import styles from './ProductCard.module.css';
-
 class ProductCard extends React.Component {
   render() {
     if (!this.props.product)
@@ -35,33 +33,33 @@ const Description = ({ children }) => (
 );
 
 const AddToCartButton = ({ onClick }) => (
-  <button onClick={onClick}>Add to Cart</button>
+  <button className='bg-blue-600 hover:bg-blue-800 rounded text-white py-3' onClick={onClick}>Add to Cart</button>
 );
 
 const Card = ({ children }) => (
-  <div className='flex'>
+  <div className='flex flex-col md:flex-row'>
     {children}
   </div>
 );
 
 const Cover = ({ src, alt }) => (
-  <div className=''>
-    <img className={styles.image} src={src} alt={alt} />
+  <div className='w-full flex justify-center md:flex-none md:w-48 md:flex-col'>
+    <img className='w-1/2 md:w-full' src={src} alt={alt} />
   </div>
 );
 
 const CardBody = ({ children }) => (
-  <div className={styles.cardBody}>
+  <div className='flex-grow flex flex-col justify-evenly px-3 py-5'>
     {children}
   </div>
 );
 
 const Title = ({ children }) => (
-  <div className={styles.title}>{children}</div>
+  <div className='font-bold text-xl'>{children}</div>
 );
 
 const Price = ({ value, discount }) => (
-  <div className={styles.price}>
+  <div className='font-bold text-lg tracking-wider'>
     {
       discount ?
         <><s>${value}</s> ${Math.floor(value * 0.95)}</>
