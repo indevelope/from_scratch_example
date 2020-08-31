@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import ProductsList from '../Products/ProductsList';
+import ProductsList from '../ProductsList';
 
-import useProducts from '../hooks/useProducts';
+import useProducts from '../../../hooks/useProducts';
 
 const Cart = () => {
   const products = useProducts();

@@ -15,7 +15,7 @@ class DiscountModal extends React.Component {
   render() {
     return (
       <>
-        <a onClick={() => this.toggle()}>Условия скидки</a>
+        <a className='underline' onClick={() => this.toggle()}>Условия скидки</a>
         {
           this.state.isOpen && ReactDOM.createPortal(
             <div style={styles.overlay}>

@@ -52,3 +52,16 @@ const useProducts = (searchQuery) => {
 };
 
 export default useProducts;
+
+export const useProduct = (productId) => {
+  const [record, setRecord] = useState(null);
+
+  useEffect(() => {
+    setRecord(null);
+    _fetchData().then(records => {
+      setRecord(records.filter(r => r.Id === productId));
+    })
+  }, [productId]);
+
+  return record;
+}
