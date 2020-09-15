@@ -59,7 +59,7 @@ export const useProduct = (productId) => {
   useEffect(() => {
     setRecord(null);
     _fetchData().then(records => {
-      setRecord(records.filter(r => r.Id === productId));
+      setRecord(records.filter(r => r.Id === productId)[0]);
     })
   }, [productId]);
 

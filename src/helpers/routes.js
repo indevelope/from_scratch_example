@@ -1,0 +1,1 @@
+export const productPath = (id = ':id') => `/product/${id}`;

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DiscountModal from './DiscountModal';
+import { productPath } from '../../../../helpers/routes';
 
 class ProductCard extends React.Component {
   render() {
@@ -15,7 +17,7 @@ class ProductCard extends React.Component {
       <Card>
         <Cover src={product.Cover} alt={product.Title} />
         <CardBody>
-          <Title>{product.Title}</Title>
+          <Title><Link to={productPath(product.Id)}>{product.Title}</Link></Title>
           <Description>{product.Description}</Description>
           <Price value={product.Price} discount={product.Discount} />
           <DiscountModal />
