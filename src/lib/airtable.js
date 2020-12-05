@@ -11,7 +11,7 @@ const httpClient = axios.create({
   }
 });
 
-function _fetchData(searchQuery) {
+export function fetchData(searchQuery) {
   return (
     httpClient.get('/Products', {
       params: {
@@ -36,32 +36,4 @@ function _mapFromAirtable(data) {
       Price: record.fields.Price
     })
   );
-}
-
-const useProducts = (searchQuery) => {
-  const [records, setRecords] = useState(null);
-
-  useEffect(() => {
-    setRecords(null);
-    _fetchData(searchQuery).then(records => {
-      setRecords(records);
-    })
-  }, [searchQuery]);
-
-  return records;
-};
-
-export default useProducts;
-
-export const useProduct = (productId) => {
-  const [record, setRecord] = useState(null);
-
-  useEffect(() => {
-    setRecord(null);
-    _fetchData().then(records => {
-      setRecord(records.filter(r => r.Id === productId)[0]);
-    })
-  }, [productId]);
-
-  return record;
-}
+  }

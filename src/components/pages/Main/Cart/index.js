@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 
 import ProductsList from '../ProductsList';
 
-import useProducts from '../../../hooks/useProducts';
-
 const Cart = () => {
-  const products = useProducts();
-
   const [items, setItems] = useState([]);
 
   const removeFromCart = (productId) => {
@@ -24,10 +20,8 @@ const Cart = () => {
         <CartItems removeFromCart={removeFromCart} items={items} />
       </div>
       <div>
-        <ProductsList 
-          isLoading={!products}
-          addToCart={addToCart} 
-          products={products} 
+        <ProductsList
+          addToCart={addToCart}
         />
       </div>
     </div>
