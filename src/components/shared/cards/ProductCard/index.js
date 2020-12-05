@@ -15,7 +15,7 @@ class ProductCard extends React.Component {
 
     return (
       <Card>
-        <Cover src={product.Cover} alt={product.Title} />
+        {product.Cover && <Cover src={product.Cover} alt={product.Title} />}
         <CardBody>
           <Title><Link to={productPath(product.Id)}>{product.Title}</Link></Title>
           <Description>{product.Description}</Description>

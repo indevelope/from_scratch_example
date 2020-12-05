@@ -6,7 +6,8 @@ import Main from './components/pages/Main';
 import NotFound from './components/pages/NotFound';
 import Product from './components/pages/Product';
 
-import { productPath } from './helpers/routes';
+import { productPath, newProductPath } from './helpers/routes';
+import NewProduct from './components/pages/NewProduct';
 
 const history = createBrowserHistory();
 
@@ -20,6 +21,7 @@ class App extends React.Component {
       <Router history={history}>
         <Switch>
           <Route component={Main} path='/' exact />
+          <Route component={NewProduct} path={newProductPath()} strict exact />
           <Route component={Product} path={productPath()} strict exact />
           <Route component={NotFound} />
         </Switch>

@@ -15,7 +15,7 @@ function _fetchData(searchQuery) {
   return (
     httpClient.get('/Products', {
       params: {
-        maxRecords: 3,
+        maxRecords: 10,
         view: 'Grid view',
         filterByFormula: searchQuery ? `SEARCH("${searchQuery}",LOWER({Title}))` : undefined
       }
@@ -32,7 +32,7 @@ function _mapFromAirtable(data) {
       Title: record.fields.Title,
       Discount: record.fields.Discount,
       Description: record.fields.Description,
-      Cover: record.fields.Cover[0].thumbnails.large.url,
+      Cover: record.fields.Cover[0].thumbnails && record.fields.Cover[0].thumbnails.large.url,
       Price: record.fields.Price
     })
   );
