@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ProductCard from '../../shared/cards/ProductCard';
-import withLoader from '../../HOC/withLoader';
+import ProductCard from 'components/shared/cards/ProductCard';
+import withLoader from 'components/HOC/withLoader';
 
 class ProductsList extends React.PureComponent {
   constructor(props) {

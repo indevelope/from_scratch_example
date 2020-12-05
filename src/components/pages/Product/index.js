@@ -3,13 +3,10 @@ import React from 'react';
 import Layout from '../../shared/Layout';
 import ProductCard from '../../shared/cards/ProductCard';
 
-import { useProduct } from '../../hooks/useProducts';
 import { useHistory } from 'react-router';
 import { Helmet } from 'react-helmet';
 
-const Product = ({ match: { params } }) => {
-  const product = useProduct(params.id);
-
+const Product = ({ product }) => {
   return (
     <Layout>
       <Helmet>
