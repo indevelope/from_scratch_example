@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const path = require('path');
 
 module.exports = {
@@ -42,6 +43,7 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[chunkhash].css'
-    })
+    }),
+    new WebpackManifestPlugin()
   ]
 };

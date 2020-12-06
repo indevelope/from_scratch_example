@@ -1,29 +1,40 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
+
+import { Router, Route, Switch, matchPath } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import routes from 'routes';
 
-import Main from './components/pages/Main';
-import NotFound from './components/pages/NotFound';
-import Product from './components/pages/Product';
+import { Provider } from 'react-redux';
+import createStore from './redux/store';
 
-import { productPath } from './helpers/routes';
-import store from './redux/store';
-import { fetchProducts } from './redux/slices/products.slice';
+const preloadedState = window.__PRELOADED_STATE__;
+delete window.__PRELOADED_STATE__;
 
+const store = createStore(preloadedState);
 const history = createBrowserHistory();
 
 history.listen((location, action) => {
-  console.log(location, action);
+  onLoad();
 });
 
 const onLoad = () => {
-  store.dispatch(fetchProducts());
-}
+  const promises = [];
+  // use `some` to imitate `<Switch>` behavior of selecting only
+  // the first to match
+  routes.some(route => {
+    // use `matchPath` here
+    const match = matchPath(history.location.pathname, route);
+    if (match) promises.push(route.loadData({ match, store }));
+    return match;
+  });
+
+  return Promise.all(promises);
+};
 
 class App extends React.Component {
   componentDidMount() {
-    onLoad();
+    if (process.env.NODE_ENV !== 'production')
+      onLoad();
   }
 
   render() {
@@ -31,9 +42,9 @@ class App extends React.Component {
       <Provider store={store}>
         <Router history={history}>
           <Switch>
-            <Route component={Main} path='/' exact />
-            <Route component={Product} path={productPath()} strict exact />
-            <Route component={NotFound} />
+            {routes.map(route => (
+              <Route key={route.name} {...route} />
+            ))}
           </Switch>
         </Router>
       </Provider>
