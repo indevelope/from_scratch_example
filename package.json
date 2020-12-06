@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy": "pm2 deploy pm2.config.js production",
     "build:server": "NODE_ENV=production webpack --config ./initializers/webpack/server",
     "build:client": "rimraf ./dist/assets/* && NODE_ENV=production webpack --config ./initializers/webpack/production",
     "start:server": "NODE_ENV=production node --enable-source-maps ./dist/server/server",
